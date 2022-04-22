@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUYFROMHERE</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wgh@300&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+
+        }
+
+
+        header {
+            height: 50px;
+            background-color: #b763d3;
+            border: 3px solid #252A34;
+        }
+
+
+        nav ul {
+            height: 50px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+
+        }
+
+        nav ul li {
+            list-style: none;
+            padding: 0px 9px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            border-color: black;
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            align-content: center;
+            padding: 5px 5px;
+            text-decoration: none;
+            font-size: 17px;
+            border-radius: 10px;
+
+        }
+
+        nav ul li a:hover {
+            color: rgb(255, 255, 255);
+
+            transition: 0.6s;
+            background-color: rgb(113, 1, 123);
+            color: rgb(255, 255, 255);
+
+        }
+
+        nav ul li h2 {
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+        }
+
+        .search input {
+            width: 700px;
+            height: 35px;
+            border-radius: 5px;
+            border-color: black;
+
+        }
+
+        .search button {
+            width: 90px;
+            height: 38px;
+            border-radius: 5px;
+            border-color: grey;
+            cursor: pointer;
+            background-color: #333;
+            color: #f2f2f2;
+            border: 2px solid;
+            padding: 0.5em 1em 0.5em;
+            margin-top: 0.3em;
+            margin-right: 0.8em;
+            font-size: 1em;
+            border-radius: 10px;
+            transition: color 0.25s, border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+            float: right;
+        }
+
+        .search button:hover {
+            border-color: rgb(113, 1, 123);
+            box-shadow: 0em 0.5em 0.5em -0.4em rgb(113, 1, 123);
+            color: white;
+            transform: translateY(-0.25em);
+            cursor: pointer;
+        }
+
+        .container {
+            min-height: calc(100vh - 50px - 50px);
+        }
+
+        .head-item {
+            background-color: white;
+            margin: auto;
+            font-family: 'Utuntu', sans-serif;
+            max-width: 91vw;
+            padding: 10px 0px;
+
+        }
+
+        .maindiv {
+            width: 95%;
+            height: 550px;
+            position: absolute;
+            left: 50%;
+            top: 60%;
+            transform: translate(-50%, -39%);
+            background-color: rgb(10, 9, 9);
+            border-radius: 10px;
+            border: 3px solid rgb(179, 179, 179);
+            /* background-image: url('https://wallpapercave.com/wp/wp4127315.jpg'); */
+            background-size: 100% 100%;
+            /* box-shadow: 1px 2px 10px black; */
+        }
+
+        .sliderdiv {
+            width: 90%;
+            height: 450px;
+            position: absolute;
+            left: 50%;
+            top: 70%;
+            transform: translate(-50%, -50%);
+            background-image: url(https://m.media-amazon.com/images/G/31/img22/April/100_Top_deal_banner/100Top-deals_1500X300_Hub1.jpg);
+            background-size: 100% 100%;
+            /* box-shadow: 1px 2px 10px 5px white; */
+            animation: slider 25s infinite linear;
+        }
+
+        @keyframes slider {
+            0% {
+                background-image: url(https://m.media-amazon.com/images/G/31/img22/April/100_Top_deal_banner/100Top-deals_1500X300_Hub1.jpg);
+            }
+
+            20% {
+                background-image: url(https://m.media-amazon.com/images/G/31/img22/April/Blockbuster_deal_banner/Hub_PC.jpg);
+            }
+
+            40% {
+                background-image: url(https://m.media-amazon.com/images/G/31/img22/April/SS/1500x300_1.jpg);
+            }
+
+            60% {
+                background-image: url(https://m.media-amazon.com/images/G/31/img22/April/Summer_store_banner/image10.png);
+            }
+
+            80% {
+                background-image: url(https://m.media-amazon.com/images/G/31/img22/April/cooking/cooking-essentials_LP2_1500X300.jpg);
+            }
+        }
+
+
+        .card {
+            background-color: rgba(214, 196, 196, 0.951);
+            margin: auto;
+            font-family: 'Utuntu', sans-serif;
+            max-width: 91vw;
+            padding: 10px 0px;
+
+        }
+
+        .card-item {
+            display: inline-flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 15px;
+            padding: 4px;
+        }
+
+        .cards {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .head-item{
+            display: inline-flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 15px;
+            padding: 4px;
+        }
+
+        .heads {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(214, 196, 196, 0.951);
+            margin: auto;
+            font-family: 'Utuntu', sans-serif;
+            max-width: 91vw;
+            padding: 10px 0px;
+
+        }
+        .lines {
+            text-align: center;
+        }
+
+
+
+        footer {
+            height: 80px;
+            background-color: rgb(26, 27, 24);
+            color: rgb(236, 236, 236);
+            font-family: 'Lato, sans-serif';
+        }
+
+        .flex-all-centre {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .items {
+            text-decoration: aliceblue
+        }
+
+        .my-1 {
+            margin: 20px 20px;
+            text-align: center;
+            text-size-adjust: 300px;
+            background-color: yellow;
+        }
+
+        .my-2 {
+            /* margin: 20px 20px; */
+            text-align: center;
+            text-size-adjust: 300px;
+            background-color: rgba(0, 255, 247, 0.931);
+
+        }
+
+        .my-4 {
+            color: rgb(80, 246, 9);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+
+                <li><a href="home.html" target="_blank"> Home</a>
+                </li>
+                <li><a href="home.html" target="_blank"> About</a>
+                </li>
+                <li><a href="contact.html" target="_blank"> Contact</a>
+                </li>
+                <li>
+                    <h1>
+                        <p class="my-4">buyfromhere.com</p>
+                    </h1>
+                </li>
+                <div class="search">
+                    <input type="text" name="" id="" placeholder=" Search for products,brands and more">
+                    <button class="btn">Search</button>
+                </div>
+
+            </ul>
+        </nav>
+
+    </header>
+
+
+
+
+
+
+    <main>
+
+        <!-- <div class="head">
+            <div class="head-item">
+                <a href="https://www.amazon.in/s?k=top+offers&crid=QIUBZA63L6GL&sprefix=top+off%2Caps%2C310&ref=nb_sb_ss_ts-doa-p_2_7"
+                    target="_blank"> <img src="top offers.jpg" />
+                </a>
+                <div class=" lines">
+                    <p class="text-centre">
+                    <h2>TOP OFFERS</h2>
+                    </p>
+            </div>
+                </div>
+            </div> -->
+        <!-- <div class="card">
+            <div class="card-item">
+                <a href="https://www.amazon.in/s?k=top+offers&crid=QIUBZA63L6GL&sprefix=top+off%2Caps%2C310&ref=nb_sb_ss_ts-doa-p_2_7"
+                    target="_blank"> <img src="top offers.jpg" />
+                </a>
+                <div class=" lines">
+                    <p class="text-centre">
+                    <h2>Dark Fantasy</h2>
+                    </p>
+                </div>
+
+
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/s?k=glossary&sprefix=glossa%2Caps%2C646&ref=nb_sb_ss_ts-doa-p_3_6"
+                        target="_blank"> <img src="glosary.jpg" />
+                    </a>
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Dark Fantasy</h2>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+
+        <div class="heads">
+            <div class="head-item">
+                <a href="https://www.amazon.in/s?k=top+offers&crid=QIUBZA63L6GL&sprefix=top+off%2Caps%2C310&ref=nb_sb_ss_ts-doa-p_2_7"
+                    target="_blank"> <img src="top offers.jpg" />
+                </a>
+                <div class=" lines">
+                    <p class="text-centre">
+                    <h2>Top Offers</h2>
+                    </p>
+                </div>
+            </div>
+
+            <div class="head-item">
+                <a href="https://www.amazon.in/s?k=glossary&sprefix=glossa%2Caps%2C646&ref=nb_sb_ss_ts-doa-p_3_62"
+                    target="_blank">
+                    <img src="glosary.jpg" alt="" /> </a>
+
+                <div class=" lines">
+                    <p class="text-centre">
+                    <h2>Grocery</h2>
+                    </p>
+                </div>
+            </div>
+
+            <div class="head-item">
+                <a href="https://www.amazon.in/s?k=chips+and+snacks&sprefix=chips+%2Caps%2C254&ref=nb_sb_ss_ts-doa-p_1_6"
+                    target="_blank">
+                    <img src="head3.jpg" width="130px" alt=""></a>
+
+                <div class=" lines">
+                    <p class="text-centre">
+                    <h2>Snack</h2>
+                    </p>
+                </div>
+            </div>
+
+            <div class="head-item">
+                <a href="https://www.amazon.in/s?k=wheet+rava+maida+and+rice&crid=148F39JVUZ7IZ&sprefix=wheet+rava+maida+and+rice%2Caps%2C265&ref=nb_sb_noss"
+                    target="_blank">
+                    <img src="grains.jpg"width="130px"height="130px" alt=""></a>
+
+                <div class=" lines">
+                    <p class="text-centre">
+                    <h2>Cereal</h2>
+                    </p>
+                </div>
+            </div>
+
+            <div class="head-item">
+                <a href="https://www.amazon.in/s?k=biscuits&crid=3U6LYALMT79HH&sprefix=biscuits%2Caps%2C238&ref=nb_sb_ss_ts-doa-p_5_8"
+                    target="_blank">
+                    <img src="biscuits.jpg"width="130px"height="130px" alt=""></a>
+
+                <div class=" lines">
+                    <p class="text-centre">
+                    <h2>Biscuits</h2>
+                    </p>
+                </div>
+            </div>
+
+            <div class="head-item">
+                <a href="https://www.amazon.in/s?k=chocolates&crid=1P5797XFI0U22&sprefix=chocolates%2Caps%2C268&ref=nb_sb_noss"
+                    target="_blank">
+                    <img src="chocolates.jpg"width="130px"height="130px" alt=""></a>
+
+                <div class=" lines">
+                    <p class="text-centre">
+                    <h2>Chocolate</h2>
+                    </p>
+                </div>
+            </div>
+
+            <div class="head-item">
+                <a href="https://www.amazon.in/s?k=soap+combo&sprefix=soap+combo%2Caps%2C275&ref=nb_sb_ss_ts-doa-p_1_10"
+                    target="_blank">
+                    <img src="saop.jpg"width="130px"height="130px" alt=""></a>
+
+                <div class=" lines">
+                    <p class="text-centre">
+                    <h2>Soap</h2>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+            <div class="container"> </div>
+            <div class="maindiv"></div>
+            <div class="sliderdiv"></div>
+
+            <hr>
+            <div>
+                <h1 class="my-2">KID'S FAVORITE:: </h1>
+            </div>
+            <hr>
+            <div>
+                <h1 class="my-1">BISCUITS::</h1>
+            </div>
+            <hr>
+            <div class="card">
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Dark-Fantasy-Choco-Fills-300g/dp/B01I17U9ZO/ref=sr_1_omk_2_0o_fs?almBrandId=ctnow&fpw=alm&keywords=dark+fantasy&qid=1650186068&sprefix=dark%2Caps%2C321&sr=8-2"
+                        target="_blank"> <img src="dark fantasy.jpg" />
+                    </a>
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Dark Fantasy</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹100.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Cadbury-Original-Chocolatey-Sandwich-Biscuit/dp/B07B24KS8S/ref=sr_1_2?almBrandId=ctnow&crid=3KX4NIFKV580P&fpw=alm&keywords=oreo&qid=1650186214&s=nowstore&sprefix=oreo%2Cnowstore%2C524&sr=1-2"
+                        target="_blank">
+                        <img src="oreo.jpg" alt="" /> </a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>OREO</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 30%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹60.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Parle-Hide-Seek-Choc-350/dp/B07QN74QDJ/ref=sr_1_12?keywords=hide+and+seek+biscuit&qid=1650186466&sprefix=hide%2Caps%2C367&sr=8-12"
+                        target="_blank">
+                        <img src="hide and seek.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Hide & Seek</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹90.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Parle-Biscuits-140g-Pack/dp/B01IHPBBA2/ref=sr_1_8?crid=3IZ760EGRIM67&keywords=parle+g&qid=1650187362&s=grocery&sprefix=parle+g%2Cgrocery%2C291&sr=1-8"
+                        target="_blank">
+                        <img src="parleg.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Parle-G</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹20.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/More-Combo-Britannia-Biscuit-Bourbon/dp/B079LLGTD3/ref=sr_1_12?keywords=burbone+biscuits+packet&qid=1650187417&s=grocery&sprefix=burbon%2Cgrocery%2C312&sr=1-12"
+                        target="_blank">
+                        <img src="bourbon.jpj.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Bour Bon</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 15%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹40.00</h1>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+            <div>
+                <h1>
+                    <p class="my-1">WRAFFERS::</p>
+                </h1>
+            </div>
+
+            <hr>
+
+            <div class="card">
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Kurkure-Namkeen-Masala-Munch-95g/dp/B004IF24XE/ref=sr_1_1?keywords=kurkura&qid=1650187631&s=grocery&sprefix=kur+%2Cgrocery%2C398&sr=1-1"
+                        target="_blank">
+                        <img src="1.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Kur Kure</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹30.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Too-Yumm-Chips-American-Style/dp/B08XZD8Z3G/ref=sr_1_5_0g_fs?almBrandId=ctnow&crid=36PHZ6PMLB530&fpw=alm&keywords=Too+Yumm%21+Chips&qid=1650187836&s=grocery&sprefix=too+yumm+chips%2Cgrocery%2C376&sr=1-5"
+                        target="_blank">
+                        <img src="2.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Too Yumm! Chips</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹20.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Lays-American-Onion-Flavour-Multipack/dp/B00TXA23G2/ref=sr_1_11?crid=2F5P9AONUPKW2&keywords=lays+combo+pack+of+all+flavour&qid=1650187725&s=grocery&sprefix=lats+com%2Cgrocery%2C461&sr=1-11"
+                        target="_blank">
+                        <img src="3.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>LAYS</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 30%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹50.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Lays-Potato-Chips-American-Flavour/dp/B07W4RMG6C/ref=sr_1_12?crid=2F5P9AONUPKW2&keywords=lays+combo+pack+of+all+flavour&qid=1650187890&s=grocery&sprefix=lats+com%2Cgrocery%2C461&sr=1-12"
+                        target="_blank">
+                        <img src="4.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>LAYS</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 30%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹150.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Doritos-Nacho-Chips-Cheese-Flavour/dp/B08Q9B4LP7/ref=sr_1_5_0g_fs?almBrandId=ctnow&crid=2WDKLH89N52FC&fpw=alm&keywords=Doritos&qid=1650188094&s=grocery&sprefix=doritos%2Cgrocery%2C775&sr=1-5"
+                        target="_blank">
+                        <img src="5.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Doritos</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹15.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Bingo-Angles-Very-Peri-163g/dp/B07RWZF5L7/ref=sr_1_8_0g_fs?almBrandId=ctnow&crid=37ZLZR3IVPYPU&fpw=alm&keywords=Mad+Angles&qid=1650188174&s=grocery&sprefix=mad+angles%2Cgrocery%2C343&sr=1-8"
+                        target="_blank">
+                        <img src="6.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Mad Angles</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹25.00</h1>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <div>
+                <h1>
+                    <p class="my-1">CHOCOLATES::</p>
+
+
+                </h1>
+            </div>
+            <hr>
+
+
+            <div class="card">
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Cadbury-Perk-Chocolate-Home-Treats/dp/B07DG4S4NX/ref=sr_1_6?keywords=perk+chocolates&qid=1650188256&sprefix=perk%2Caps%2C325&sr=8-6"
+                        target="_blank">
+                        <img src="7.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Perk</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹400.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Galaxy-Smooth-Milk-Chocolate-Pack/dp/B09DCWG1Z9/ref=sr_1_1_sspa?crid=2B2JEVCSYY7V3&keywords=galaxy+chocolate&qid=1650188360&sprefix=galaxy%2Caps%2C354&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUE4M0JPUUJERjJQRyZlbmNyeXB0ZWRJZD1BMDgyMzAxMFJMUk9WQk5TNlc5MSZlbmNyeXB0ZWRBZElkPUEwMzY2MDMyUldOSzlLWFpKRzEmd2lkZ2V0TmFtZT1zcF9hdGYmYWN0aW9uPWNsaWNrUmVkaXJlY3QmZG9Ob3RMb2dDbGljaz10cnVl"
+                        target="_blank">
+                        <img src="8.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Galaxy</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹500.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Cadbury-Dairy-Milk-Valentine-Chocolate/dp/B082WL2G6W/ref=sr_1_14?crid=RZU2X2V402VV&keywords=Dairy%2BMilk&qid=1650188473&sprefix=dairy%2Bmilk%2Caps%2C335&sr=8-14&th=1"
+                        target="_blank">
+                        <img src="9.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Dairy Milk</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 30%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹500.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Nestle-KitKat-18g-Pack-40/dp/B06XG45KNT/ref=sr_1_9?crid=12OVO7DFIT3CO&keywords=Kit+Kat&qid=1650188550&sprefix=kit+kat%2Caps%2C347&sr=8-9"
+                        target="_blank">
+                        <img src="10.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Kit Kat</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹600.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Cadbury-Star-Chocolate-Home-units/dp/B00XYALG1K/ref=sr_1_6?crid=OS2J7GB5M4XO&keywords=5+STAR&qid=1650188613&sprefix=5+star%2Caps%2C341&sr=8-6"
+                        target="_blank">
+                        <img src="11.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>5 STAR</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹30.00</h1>
+                        </p>
+                        < </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <div>
+                <h1 class="my-2">DAILY USES:: </h1>
+            </div>
+            <hr>
+
+
+            <hr>
+            <div>
+                <h1 class="my-1"> SHAMPOO::</h1>
+            </div>
+            <hr>
+
+            <div class="card">
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Dove-Daily-Shine-Shampoo-650ml/dp/B07HB4FKZS/ref=sr_1_2_f3_wg_sspa?almBrandId=ctnow&crid=XCD0P0C5N1PI&fpw=alm&keywords=shampoo+1+rs&qid=1650524589&s=nowstore&sprefix=Shampoo+1%2Cnowstore%2C311&sr=1-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyNFFCTEgzNEVLSlRDJmVuY3J5cHRlZElkPUEwMDcwMTAyTlZJQjZLSUs3SVAyJmVuY3J5cHRlZEFkSWQ9QTA1MTc4NjIxWkxFRkpKWThDNFJOJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=="
+                        target="_blank"> <img src="12.jpg" alt=""></a>
+                    </a>
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Dove</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹395.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Sunsilk-Stunning-Shampoo-Protein-Moisturised/dp/B093SWNYYS/ref=sr_1_1_f3_wg_sspa?almBrandId=ctnow&crid=XCD0P0C5N1PI&fpw=alm&keywords=shampoo+1+rs&qid=1650524589&s=nowstore&sprefix=Shampoo+1%2Cnowstore%2C311&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyNFFCTEgzNEVLSlRDJmVuY3J5cHRlZElkPUEwMDcwMTAyTlZJQjZLSUs3SVAyJmVuY3J5cHRlZEFkSWQ9QTA4OTYxMTIyT0RRMDdPV1hGRDM0JndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=="
+                        target="_blank">
+                        <img src="13.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Sunsilk</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹770.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Indulekha-Bringha-Cleanser-Shampoo-340ml/dp/B07MZJ62FL/ref=sr_1_21_f3_wg?almBrandId=ctnow&crid=XCD0P0C5N1PI&fpw=alm&keywords=shampoo+1+rs&qid=1650524589&s=nowstore&sprefix=Shampoo+1%2Cnowstore%2C311&sr=1-21"
+                        target="_blank">
+                        <img src="14.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Indulekha</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹299.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Clinic-Plus-Strong-Health-Shampoo/dp/B07WSN3PR3/ref=sr_1_19_f3_wg?almBrandId=ctnow&crid=XCD0P0C5N1PI&fpw=alm&keywords=shampoo+1+rs&qid=1650524589&s=nowstore&sprefix=Shampoo+1%2Cnowstore%2C311&sr=1-19"
+                        target="_blank">
+                        <img src="15.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Clinic Plus </h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹383.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/TRESemme-Hair-Defence-Shampoo-1000ml/dp/B07L3YNL2V/ref=sr_1_10_f3_wg?almBrandId=ctnow&crid=XCD0P0C5N1PI&fpw=alm&keywords=shampoo+1+rs&qid=1650524589&s=nowstore&sprefix=Shampoo+1%2Cnowstore%2C311&sr=1-10"
+                        target="_blank">
+                        <img src="16.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>TRESemme</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹469.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Head-Shoulders-Cool-Menthol-Litre/dp/B08194DMZP/ref=sr_1_8_f3_wg?almBrandId=ctnow&crid=XCD0P0C5N1PI&fpw=alm&keywords=shampoo+1+rs&qid=1650524589&s=nowstore&sprefix=Shampoo+1%2Cnowstore%2C311&sr=1-8"
+                        target="_blank">
+                        <img src="17.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Head & Shoulder</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹599.00</h1>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr>
+            <div>
+                <h1 class="my-1"> SOAPS::</h1>
+            </div>
+            <hr>
+
+
+            <div class="card">
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Santoor-Aloe-Fresh-Soap-Pack/dp/B07S5MQR4X/ref=sr_1_1_f3_wg_sspa?almBrandId=ctnow&crid=1G0G5CCT5AIWR&fpw=alm&keywords=soap&qid=1650526620&s=nowstore&sprefix=saop%2Cnowstore%2C342&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyUjlXV1MzT1o3NDRDJmVuY3J5cHRlZElkPUEwNTk1MDA3NkNVN0hBMjNQMFZPJmVuY3J5cHRlZEFkSWQ9QTAzMTU1NDMxTDdOVDFCUDYwM1RVJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=="
+                        target="_blank"> <img src="18.jpg" alt=""></a>
+                    </a>
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Santoor Aloe</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹165.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Santoor-Sandal-Turmeric-Soap-125g/dp/B006L7Q3OS/ref=sr_1_4_f3_wg?almBrandId=ctnow&crid=WTV87KOZ362B&fpw=alm&keywords=soaps+combo&qid=1650526834&s=nowstore&sprefix=soap%2Cnowstore%2C234&sr=1-4"
+                        target="_blank">
+                        <img src="19.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Santoor</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹143.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Dettol-Original-Protection-Bathing-125gm/dp/B086T4WGRY/ref=sr_1_4_f3_wg?almBrandId=ctnow&crid=1G0G5CCT5AIWR&fpw=alm&keywords=soap&qid=1650526620&s=nowstore&sprefix=saop%2Cnowstore%2C342&sr=1-4"
+                        target="_blank">
+                        <img src="20.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Dettol</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹205.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Dove-Cream-Beauty-Bar-Moisturised/dp/B08S51KLZ5/ref=sr_1_1_f3_wg_sspa?almBrandId=ctnow&crid=22226I0UO2Y8R&fpw=alm&keywords=soap+dove+pack+of+4&qid=1650526775&s=nowstore&sprefix=soap+do%2Cnowstore%2C245&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyN1VOMDRERENMSTFIJmVuY3J5cHRlZElkPUEwMjczMTY4MkdDN0wwREVXSE00NCZlbmNyeXB0ZWRBZElkPUExMDIzNDkzMzBWMU01U1pFTzVWSyZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
+                        target="_blank">
+                        <img src="21.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Dove</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹199.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Pears-Pure-Gentle-Bathing-125g/dp/B0744K8LWY/ref=sr_1_1_f3_wg_sspa?almBrandId=ctnow&crid=BKLGJDACUJA9&fpw=alm&keywords=soaps+pears+combo+offers&qid=1650526853&s=nowstore&sprefix=soaps+p%2Cnowstore%2C239&sr=1-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExVDhJQTgyUlVVSkIxJmVuY3J5cHRlZElkPUEwNDcyODMyMjMzTkxZTzk1VVNYVyZlbmNyeXB0ZWRBZElkPUEwOTA3ODk0N0lBNERNWDVCRkVGJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=="
+                        target="_blank">
+                        <img src="22.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Pears</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹325.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Himalaya-Almond-Rose-Soap-125g/dp/B0142L4OMC/ref=sr_1_3_f3_wg?almBrandId=ctnow&crid=1UJE5KPOD9GJZ&fpw=alm&keywords=himalaya+soap&qid=1650528081&s=nowstore&sprefix=himala%2Cnowstore%2C315&sr=1-3"
+                        target="_blank">
+                        <img src="23.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Himalaya</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹150.00</h1>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <hr>
+            <div>
+                <h1></h1>
+            </div>
+            <hr>
+
+            <div class="card">
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Tide-Blue-Detergent-Soap-Value/dp/B08DB9GFHT/ref=sr_1_5?keywords=soap+for+washing+clothes&qid=1650528873&sprefix=soap+for+washing+cl%2Caps%2C243&sr=8-5"
+                        target="_blank"> <img src="24.jpg" alt=""></a>
+                    </a>
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Tide Bar</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹79.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Rin-Detergent-Soap-25gm-PACK/dp/B09C3M2JVM/ref=sr_1_1_sspa?crid=1ZRCVTHTZUIRK&keywords=rin+bar&qid=1650528990&sprefix=rin+bar%2Caps%2C430&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExNkM0T1dJRU5MTFpBJmVuY3J5cHRlZElkPUEwOTI5OTcwMjFPNllBNzg5VlpCNCZlbmNyeXB0ZWRBZElkPUEwNTY0Mjg1MTZYVlhQSFhENUswTCZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
+                        target="_blank">
+                        <img src="25.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Rin Bar</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹193.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/excel-Detergent-stain-eraser-soap/dp/B098YT6K8D/ref=sr_1_2?crid=3HHXZOYB8QFE2&keywords=sulfexal&qid=1650529285&s=everyday-essentials&sprefix=sulfexal%2Ceveryday-essentials%2C274&sr=1-2&srs=5756143031"
+                        target="_blank">
+                        <img src="26.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Surf Excel</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹287.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Vim-Dishwash-Bar-200-Pack/dp/B00U77E8M2/ref=sr_1_5_f3_0o_na?crid=1OB1WPEFHBHHF&keywords=excel+soap+for+washing+utensils&qid=1650529850&sprefix=excel+soap+for+washing+ytensil%2Caps%2C278&sr=8-5"
+                        target="_blank">
+                        <img src="27.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Vin Bar</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹40.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Exo-Bar-125g-Set-Free/dp/B078HC9V8B/ref=pb_allspark_dp_sims_pao_desktop_session_based_sccl_12/259-9833569-4476549?pd_rd_w=Qp6gY&pf_rd_p=f9221308-d9c7-4a5c-ac35-a081ae29b064&pf_rd_r=ZDSMQEB8G7RN7472PVCD&pd_rd_r=1ee09abd-a465-4da1-8897-47a126ab4be9&pd_rd_wg=qWQPK&pd_rd_i=B078HC9V8B&th=1"
+                        target="_blank">
+                        <img src="28.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>EXO</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹37.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Antibacterial-250g-Scrub-quantity-Wastage/dp/B09T76ZW2D/ref=sr_1_33?crid=2514LKLW56DFL&keywords=washing+soap+bar&qid=1650530083&sprefix=washing+soap+bar%2Caps%2C281&sr=8-33"
+                        target="_blank">
+                        <img src="29.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>EXO (3)</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 5%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹299.00</h1>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+
+            <hr>
+            <div>
+                <h1 class="my-2">KICHEN ITEMS:: </h1>
+            </div>
+            <hr>
+
+            <hr>
+            <div>
+                <h1 class="my-1"> COOKING OIL(1L)::</h1>
+            </div>
+            <hr>
+
+            <div class="card">
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Fortune-Rice-Bran-Health-1L/dp/B00NYZU698/ref=sr_1_14_f3_0o_fs?almBrandId=ctnow&crid=1WMQUPF1XYCD5&fpw=alm&keywords=eating+oil+1+litre+pouch&qid=1650516745&sprefix=oil+for+eating+1%2Caps%2C282&sr=8-14"
+                        target="_blank"> <img src="30.jpg" />
+                    </a>
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Fortune</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2>Rice-Bran-oil</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹.190.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Dhara-Health-Refined-Sunflower-Pouch/dp/B01N5VGYRM/ref=sr_1_8_f3_0o_fs?almBrandId=ctnow&crid=18K7VF5RGD7XZ&fpw=alm&keywords=sunflower+oil+1+litre&qid=1650517617&sprefix=sunf%2Caps%2C558&sr=8-8"
+                        target="_blank">
+                        <img src="31.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Dhara Refined </h2>
+                        </p>
+                        <P class="text-centre">
+                        <h2>Sunflower Oil</h2>
+                        </P>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹200.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Saffola-Healthy-Lifestyle-Edible-Pouch/dp/B00L13WLFW/ref=sr_1_1_f3_0o_fs_sspa?almBrandId=ctnow&crid=2CAUCAP4TQ3I5&fpw=alm&keywords=cooking%2Boil%2B1%2Blitre%2Bpouch&qid=1650518328&sprefix=coking%2Boils%2B1%2Caps%2C423&sr=8-1-spons&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExQ0NSU1pOSDIzVktOJmVuY3J5cHRlZElkPUEwNTMxNzIxMVNDVUtTRkIzRTIwSSZlbmNyeXB0ZWRBZElkPUEwMzg5Mjg0SFhDSzZLUExOVjY1JndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ&th=1"
+                        target="_blank">
+                        <img src="32.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Saffola Gold</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2> Cooking oil</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹219.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Gemini-Refined-Cooking-Oil-Litre/dp/B07MB62YRL/ref=sr_1_23_f3_wg?almBrandId=ctnow&crid=1G0JW5GKNGO0A&fpw=alm&keywords=eating+oil+1+litre+pouch&qid=1650518898&s=nowstore&sprefix=eating+oil+1+litre+pouch%2Cnowstore%2C376&sr=1-23"
+                        target="_blank">
+                        <img src="33.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Gemini-Rice</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2>Bran-Oil</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹205.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Sunny-Cooking-Oil-Refined-Sunflower/dp/B01LYZA6WS/ref=sr_1_20_f3_wg?almBrandId=ctnow&fpw=alm&keywords=cooking+oil&qid=1650521895&s=nowstore&sprefix=COOKO%2Cnowstore%2C542&sr=1-20"
+                        target="_blank">
+                        <img src="34.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Sunny</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2>Sunflower-oil</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹170.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Sundrop-Oil-Super-Advanced-Pouch/dp/B00NYZTKF4/ref=sr_1_27_f3_wg?almBrandId=ctnow&fpw=alm&keywords=cooking+oil&qid=1650522581&s=nowstore&sprefix=COOKO%2Cnowstore%2C542&sr=1-27"
+                        target="_blank">
+                        <img src="35.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Sundrop-Oil</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2> Super Lite</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 20%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹184.00</h1>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <div>
+                <h1 class="my-1"> INGREDIENTS::</h1>
+            </div>
+            <hr>
+
+            <div class="card">
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Catch-Red-Chilli-Powder-200g/dp/B0154J838W/ref=sr_1_2_f3_0o_fs_sspa?almBrandId=ctnow&crid=2VDGW228FS3EM&fpw=alm&keywords=red+chilli+powder&qid=1650531015&sprefix=RED+CH%2Caps%2C442&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyMlFDSzdOTjIxWEtWJmVuY3J5cHRlZElkPUEwMTY1NTcyMUJST0ZJRFo5UUg2RSZlbmNyeXB0ZWRBZElkPUEwMjk3OTYwMkIyWFdXRDdaVzdNViZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU="
+                        target="_blank"> <img src="36.jpg" />
+                    </a>
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Red Chilli</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2>Powder</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹99.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Catch-Super-Garam-Masala-Powder/dp/B01B7DZJ3Q/ref=sr_1_3_f3_wg?almBrandId=ctnow&crid=JEQ3Q78OTSEA&fpw=alm&keywords=garam+masala+powder&qid=1650531157&s=nowstore&sprefix=garam%2Cnowstore%2C312&sr=1-3"
+                        target="_blank">
+                        <img src="37.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Garam Masala</h2>
+                        </p>
+                        <P class="text-centre">
+                        <h2>Powder</h2>
+                        </P>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹100.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Maggi-Masala-Magic-6-5g-Pack/dp/B07CJH1VC8/ref=sr_1_5?crid=ENATPVL6DN4V&keywords=maggi+masala+powder&qid=1650547987&sprefix=maggi+ma%2Caps%2C283&sr=8-5"
+                        target="_blank">
+                        <img src="38.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Maggi Masala</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2>Powder</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹168.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Tata-Sampann-Coriander-Powder-500g/dp/B07BH4K3WT/ref=sr_1_8_f3_0o_fs?almBrandId=ctnow&fpw=alm&keywords=dhaniya+powder&qid=1650559256&sprefix=dhaniya%2Caps%2C357&sr=8-8"
+                        target="_blank">
+                        <img src="39.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>Coriander </h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2>Powder</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹169.00</h1>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-item">
+                    <a href="https://www.amazon.in/CATCH-TURMERIC-POWDER-MASALA-HALDI/dp/B09N8TT58Y/ref=sr_1_2_sspa?crid=UE7HGCX72NND&keywords=turmeric+masala&qid=1650559421&sprefix=termerricmasale%2Caps%2C272&sr=8-2-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUEyR0M0WU5KVjc0RVBVJmVuY3J5cHRlZElkPUEwMDA4OTcxMUNVQThPMkwzWlpXMSZlbmNyeXB0ZWRBZElkPUExMDAwNDMwSEFUQ1VRRThMWjBHJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ=="
+                        target="_blank">
+                        <img src="40.jpg" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>TURMERIC</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2>POWDER</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹127.00</h1>
+                        </p>
+                    </div>
+                </div>
+                <div class="card-item">
+                    <a href="https://www.amazon.in/Tata-Salt-1kg/dp/B07575FPC3/ref=sr_1_3_f3_0o_fs?almBrandId=ctnow&crid=2R8JG32ISXKRS&fpw=alm&keywords=tata+salt&qid=1650559545&sprefix=tata%2Caps%2C308&sr=8-3"
+                        target="_blank">
+                        <img src="41.jpg" width="175px" alt=""></a>
+
+                    <div class=" lines">
+                        <p class="text-centre">
+                        <h2>TATA</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h2> salt</h2>
+                        </p>
+                        <p class="text-centre">
+                        <h4>upto 10%off</h4>
+                        </p>
+                        <p class="text-centre">
+                        <h1>₹22.00</h1>
+                        </p>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+
+
+
+
+    <footer class="flex-all-centre">
+        <h1>
+            <p>buyfromhere.com</p>
+        </h1>
+    </footer>
+</body>
+
+</html>
